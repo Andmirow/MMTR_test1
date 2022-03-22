@@ -12,7 +12,7 @@ public abstract class Transleter implements TransleterInterface {
     private String nameFirstColumn;
     private String nameSecondColumn;
     private boolean isSetTransleter = false;
-
+    private String rule;
 
     public Transleter(){}
 
