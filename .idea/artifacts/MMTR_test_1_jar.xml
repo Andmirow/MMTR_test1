@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MMTR_test_1:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MMTR_test_1_jar</output-path>
+    <root id="archive" name="MMTR_test_1.jar">
+      <element id="module-output" name="MMTR_test_1" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.16.1/sqlite-jdbc-3.16.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
