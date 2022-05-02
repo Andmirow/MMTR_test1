@@ -28,10 +28,38 @@ public class TxtReader implements ReaderInterface{
         }
     }
 
+    private boolean write(){
+        boolean result;
+        try {
+            PrintWriter pw = new PrintWriter(way);
+            for (String line : list){
+                pw.write(line);
+                pw.write("\n");
+                }
+            pw.flush();
+            pw.close();
+            result = true;
+        } catch (FileNotFoundException e) {
+            result = false;
+        }
+        return result;
+
+    }
 
     @Override
     public boolean Add(String word, String translete) {
-        return false;
+        boolean result;
+        boolean up = false;
+        StringBuilder sb = new StringBuilder();
+        List<String> temp = find(word);
+        if (temp.size()==0){
+            sb.append(word).append(" - ").append(translete);
+            list.add(sb.toString());
+        }else{
+            list.remove(temp.get(0));
+            list.add(sb.append(temp.get(0).replace(word + " -","")).append(", ").append(translete).toString());
+        }
+        return write();
     }
 
     @Override
@@ -52,6 +80,13 @@ public class TxtReader implements ReaderInterface{
 
     @Override
     public boolean delite(String word) {
-        return false;
+        StringBuilder sb = new StringBuilder();
+        List<String> temp = find(word);
+        if (temp.size()>0){
+            list.remove(temp.get(0));
+            return  write();
+        }else{
+            return false;
+        }
     }
 }

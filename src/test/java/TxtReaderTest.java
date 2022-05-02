@@ -5,7 +5,10 @@ import java.io.*;
 public class TxtReaderTest {
     public static void main(String[] args) {
         TxtReader txt = new TxtReader("C:\\Users\\Admin\\Desktop\\MMTR_test\\Translater.txt");
-        System.out.println(txt.find("tree").toString());
+        //txt.Add("tree ","дерево");
+        txt.delite("tree");
+        System.out.println(txt.selectAll().toString());
+        //System.out.println(txt.find("tree").toString());
 
 
 //        File file = new File("C:\\Users\\Admin\\Desktop\\MMTR_test\\Translater.txt");
