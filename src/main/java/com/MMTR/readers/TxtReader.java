@@ -1,16 +1,14 @@
-package com.MMTR;
+package com.MMTR.readers;
 
-import java.awt.font.FontRenderContext;
+import com.MMTR.CRUD_Interface;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
-public class TxtReader implements ReaderInterface{
+public class TxtReader implements CRUD_Interface {
 
     private List<String> list;
     private String way;

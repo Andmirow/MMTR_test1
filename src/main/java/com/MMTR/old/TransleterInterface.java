@@ -1,4 +1,6 @@
-package com.MMTR;
+package com.MMTR.old;
+
+import com.MMTR.old.MyChekedException;
 
 import java.sql.SQLException;
 

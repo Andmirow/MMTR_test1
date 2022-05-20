@@ -1,4 +1,6 @@
-package com.MMTR;
+package com.MMTR.old;
+
+import com.MMTR.Transleter;
 
 import java.sql.SQLException;
 
@@ -14,6 +16,10 @@ public class FactoryTranslater {
             throw new MyChekedException("не верный формат словаря");
 
         return res;
+    }
+
+    public static Transleter getTranslater(String url, String login, String password){
+        return null;
     }
 
 

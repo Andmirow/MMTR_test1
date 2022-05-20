@@ -1,10 +1,13 @@
-package com.MMTR;
+package com.MMTR.old;
+
+import com.MMTR.Transleter;
+import com.MMTR.old.MyChekedException;
 
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class NumericalTransleter extends Transleter{
+public class NumericalTransleter extends Transleter {
     public NumericalTransleter(String plase, String nameDataBase) throws SQLException, MyChekedException {
         super(plase, nameDataBase);
     }

@@ -1,5 +1,8 @@
 package com.MMTR;
 
+import com.MMTR.old.MyChekedException;
+import com.MMTR.old.TransleterInterface;
+
 import java.sql.*;
 
 public abstract class Transleter implements TransleterInterface {
@@ -17,7 +20,7 @@ public abstract class Transleter implements TransleterInterface {
     public Transleter(){}
 
 
-    public void setTransleter(String plase,String nameDataBase )throws SQLException,MyChekedException{
+    public void setTransleter(String plase,String nameDataBase )throws SQLException, MyChekedException {
         this.nameDataBase = nameDataBase;
         connect(plase);
         inicialization();
