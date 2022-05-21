@@ -1,6 +1,7 @@
 package com.MMTR.readers;
 
-import com.MMTR.CRUD_Interface;
+import com.MMTR.servis.CRUD_Interface;
+import com.MMTR.servis.TypeLanguage;
 
 import java.sql.*;
 import java.util.List;
@@ -10,13 +11,32 @@ public class DbReader implements CRUD_Interface {
     private Connection connection;
     private Statement statement;
     private PreparedStatement preparedStatement;
+    private String nameTableFirst;
+    private String nameTableSecond;
+    private String nameTableThird;
 
-    public DbReader(String user, String password){
+
+    public DbReader(String user, String password,TypeLanguage typeLanguage){
         connect(user,password);
     }
     public DbReader(String plase){
         connect(plase);
     }
+
+    private void inicialization(TypeLanguage typeLanguage){
+        if (typeLanguage == TypeLanguage.english){
+            nameTableFirst = "english_words";
+            nameTableSecond = "russian_words";
+            nameTableThird = "english_transtator";
+        }else if (typeLanguage == TypeLanguage.numeric){
+            nameTableFirst = "english_words";
+            nameTableSecond = "numeric_words";
+            nameTableThird = "numeric_transtator";
+        }
+    }
+
+
+
 
     public void connect(String plase){
         try {
@@ -57,6 +77,8 @@ public class DbReader implements CRUD_Interface {
 
     @Override
     public boolean Add(String word, String translete) {
+
+
         return false;
     }
 
@@ -67,9 +89,12 @@ public class DbReader implements CRUD_Interface {
 
     @Override
     public List selectAll() {
-        try (ResultSet rs3 = statement.executeQuery("SELECT * FROM flywaydb.russian_words;")) {
-            if (rs3.next()) {
-                System.out.println(rs3.getString("russian_word"));
+        try (ResultSet rs3 = statement.executeQuery("SELECT russian_word, english_word\n" +
+                "FROM flywaydb.english_transtator\n" +
+                "NATURAL INNER JOIN flywaydb.russian_words\n" +
+                "NATURAL INNER JOIN flywaydb.english_words;")) {
+            while(rs3.next()) {
+                System.out.println(rs3.getString("russian_word")+" - " +rs3.getString("english_word"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

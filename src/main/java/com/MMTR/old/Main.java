@@ -1,5 +1,6 @@
-package com.MMTR;
+package com.MMTR.old;
 
+import com.MMTR.Transleter;
 import com.MMTR.old.FactoryTranslater;
 import com.MMTR.old.MyChekedException;
 

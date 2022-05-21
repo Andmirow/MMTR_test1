@@ -1,11 +1,14 @@
-package com.MMTR;
+package com.MMTR.servis;
+
+import com.MMTR.servis.CRUD_Interface;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserDAO implements CRUD_Interface{
+public class UserDAO implements CRUD_Interface {
 
+    TypeLanguage typeLanguage;
     CRUD_Interface crud_interface;
     String mask;
 
@@ -15,7 +18,9 @@ public class UserDAO implements CRUD_Interface{
 
     public UserDAO(CRUD_Interface crud_interface, String mask){
         this.crud_interface = crud_interface;
-        this.mask = mask;
+        if (!mask.equals("")){
+            this.mask = mask;
+        }
    }
 
     @Override
