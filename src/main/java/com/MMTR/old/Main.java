@@ -1,9 +1,5 @@
 package com.MMTR.old;
 
-import com.MMTR.Transleter;
-import com.MMTR.old.FactoryTranslater;
-import com.MMTR.old.MyChekedException;
-
 import java.sql.SQLException;
 import java.util.Scanner;
 

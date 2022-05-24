@@ -1,5 +1,6 @@
 package com.MMTR.servis;
 
+import com.MMTR.readers.db_reader.DB_Interfase;
 import com.MMTR.servis.CRUD_Interface;
 
 import java.util.List;
@@ -8,9 +9,15 @@ import java.util.regex.Pattern;
 
 public class UserDAO implements CRUD_Interface {
 
-    TypeLanguage typeLanguage;
-    CRUD_Interface crud_interface;
-    String mask;
+    private TypeLanguage typeLanguage;
+    private CRUD_Interface crud_interface;
+
+    public DB_Interfase getDb_interfase() {
+        return db_interfase;
+    }
+
+    private DB_Interfase db_interfase;
+    private String mask;
 
     public UserDAO(CRUD_Interface crud_interface){
         this.crud_interface = crud_interface;
@@ -22,6 +29,18 @@ public class UserDAO implements CRUD_Interface {
             this.mask = mask;
         }
    }
+
+    public UserDAO(CRUD_Interface crud_interface, DB_Interfase db_interfase){
+        this.crud_interface = crud_interface;
+        this.db_interfase = db_interfase;
+    }
+    public UserDAO(CRUD_Interface crud_interface, String mask, DB_Interfase db_interfase){
+        this.crud_interface = crud_interface;
+        this.db_interfase = db_interfase;
+        if (!mask.equals("")){
+            this.mask = mask;
+        }
+    }
 
     @Override
     public boolean Add(String word, String translete) {
@@ -53,4 +72,8 @@ public class UserDAO implements CRUD_Interface {
     public boolean delite(String word) {
         return crud_interface.delite(word);
     }
+
+
+
 }
+

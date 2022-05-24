@@ -1,7 +1,5 @@
 package com.MMTR.old;
 
-import com.MMTR.Transleter;
-
 import java.sql.SQLException;
 
 public class FactoryTranslater {
