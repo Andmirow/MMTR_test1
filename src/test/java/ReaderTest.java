@@ -19,7 +19,7 @@ public class ReaderTest {
         ConnectDB connectDB = new ConnectDB("postgres","1120697");
         DbReader dbReader = new DbReader(settingDb,connectDB);
         UserDAO userDAO = new UserDAO(dbReader,connectDB);
-        userDAO.Add("frog", "лягушка");
+        userDAO.delite("wind");
 
         System.out.println(userDAO.selectAll().toString());
 

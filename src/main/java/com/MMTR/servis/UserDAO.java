@@ -48,14 +48,13 @@ public class UserDAO implements CRUD_Interface {
             Pattern pattern = Pattern.compile(mask);
             Matcher matcher = pattern.matcher(word);
             if (matcher.matches()){
-                crud_interface.Add(word,translete);
+                return crud_interface.Add(word,translete);
             }else{
                 return false;
             }
         }else {
-            crud_interface.Add(word,translete);
+            return crud_interface.Add(word,translete);
         }
-        return false;
     }
 
     @Override
