@@ -23,6 +23,7 @@ public class MainTranslator {
         String post = scanner.nextLine();
         System.out.println("введите маску для словаря если она есть");
         String mask = scanner.nextLine();
+
         if (post.equals("да")){
             System.out.println("введите пользователя");
             String user = scanner.nextLine();
